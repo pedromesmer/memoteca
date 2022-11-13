@@ -37,6 +37,11 @@
     >
       Autoria precisa de no mínimo 3 caracteres!
     </div>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minusculo'] && formulario.get('autoria')?.touched"
+    >
+      Autoria deve conter apenas caracteres minusculos!
+    </div>
 
     <label for="modelod">Selecione o modelo do card:</label>
 
@@ -94,7 +99,11 @@
     </div>
 
     <div class="acoes">
-      <button (click)="criarPensamento()" class="botao">Salvar</button>
+      <button
+        (click)="criarPensamento()"
+        [disabled]="!formulario.valid"
+        [ngClass]="habilitarBotao()"
+        >Salvar</button>
       <button routerLink="/listarPensamento" class="botao">Cancelar</button>
     </div>
 
