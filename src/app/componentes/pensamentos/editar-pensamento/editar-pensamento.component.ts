@@ -25,23 +25,25 @@ export class EditarPensamentoComponent implements OnInit {
 
     console.log(id)
 
-    this.formulario = this.formBuilder.group({
-      conteudo: ['', Validators.compose([
-        Validators.required,
-        Validators.pattern(/(.|\s)*\S(.|\s)*/)
-      ])],
-      autoria: ['',Validators.compose([
-        Validators.required,
-        Validators.minLength(3)
-      ])],
-      modelo: ['modelo1'],
-      id: [0]
-    })
+
 
 
     this.service.buscarPorId(parseInt(id!)).subscribe((pensamento) => {
-      console.log(pensamento)
-      this.formulario.setValue(pensamento)
+
+      this.formulario = this.formBuilder.group({
+        conteudo: [pensamento.conteudo, Validators.compose([
+          Validators.required,
+          Validators.pattern(/(.|\s)*\S(.|\s)*/)
+        ])],
+        autoria: [pensamento.autoria,Validators.compose([
+          Validators.required,
+          Validators.minLength(3)
+        ])],
+        modelo: [pensamento.modelo],
+        id: [pensamento.id],
+        favorito: [pensamento.favorito]
+      })
+
     })
   }
 

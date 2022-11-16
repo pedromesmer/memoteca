@@ -13,6 +13,7 @@ export class ListarPensamentoComponent implements OnInit {
   paginaAtual = 1;
   haMaisPensamentos = true;
   filtro: string = ''
+  favoritos: boolean = false
 
   constructor(private service: PensamentoService) { }
 
@@ -23,7 +24,7 @@ export class ListarPensamentoComponent implements OnInit {
   }
 
   carregarMaisPensamentos() {
-    this.service.listar(++this.paginaAtual, this.filtro)
+    this.service.listar(++this.paginaAtual, this.filtro, this.favoritos)
       .subscribe(listaPensamentos => {
         this.listaPensamentos.push(...listaPensamentos);
         if (!listaPensamentos.length) {
@@ -36,9 +37,20 @@ export class ListarPensamentoComponent implements OnInit {
     this.haMaisPensamentos = true
     this.paginaAtual = 1
 
-    this.service.listar(this.paginaAtual, this.filtro)
+    this.service.listar(this.paginaAtual, this.filtro, this.favoritos)
       .subscribe(listaPensamentos => {
         this.listaPensamentos = listaPensamentos
       })
+  }
+
+  listarFavoritos() {
+    this.haMaisPensamentos = true
+    this.paginaAtual = 1
+    this.favoritos = true
+
+    this.service.listar(this.paginaAtual, this.filtro, this.favoritos).subscribe(listaPensamentosFavoritos => {
+      this.listaPensamentos = listaPensamentosFavoritos
+    })
+
   }
 }

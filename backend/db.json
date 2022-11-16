@@ -4,43 +4,50 @@
       "conteudo": "Pensamento 1",
       "autoria": "Pedro",
       "modelo": "modelo2",
-      "id": 1
+      "id": 1,
+      "favorito": true
     },
     {
       "conteudo": "Pensamento",
       "autoria": "Pedro",
       "modelo": "modelo3",
-      "id": 3
+      "id": 3,
+      "favorito": false
     },
     {
       "conteudo": "Teste de edição de pensamento",
       "autoria": "Pedro",
       "modelo": "modelo2",
-      "id": 4
+      "id": 4,
+      "favorito": false
     },
     {
       "conteudo": "Novo pensamento",
       "autoria": "Dev",
       "modelo": "modelo1",
-      "id": 5
+      "id": 5,
+      "favorito": true
     },
     {
       "conteudo": "mais um pensamento",
       "autoria": "pedro",
       "modelo": "modelo1",
-      "id": 6
+      "id": 6,
+      "favorito": true
     },
     {
       "conteudo": "outro",
       "autoria": "pedro",
       "modelo": "modelo1",
-      "id": 7
+      "id": 7,
+      "favorito": false
     },
     {
       "conteudo": "pedro",
       "autoria": "pedro",
       "modelo": "modelo1",
-      "id": 8
+      "id": 8,
+      "favorito": false
     }
   ]
 }

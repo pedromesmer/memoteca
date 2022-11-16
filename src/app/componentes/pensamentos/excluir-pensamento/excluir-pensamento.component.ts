@@ -14,6 +14,7 @@ export class ExcluirPensamentoComponent implements OnInit {
     autoria: '',
     conteudo: '',
     modelo: '',
+    favorito: false
   }
 
   constructor(
